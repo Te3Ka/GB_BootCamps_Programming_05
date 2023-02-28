@@ -9,10 +9,9 @@
         	Console.Write($"{printArray[i]}, ");
     }
     Console.Write("]");
-
 }
 
-int[] sortArrayBubble(int[] sortArray)
+int[] SortArrayBubble(int[] sortArray)
 {
 	int size = sortArray.Length;
 
@@ -28,15 +27,32 @@ int[] sortArrayBubble(int[] sortArray)
 			}
 		}
 		PrintArrayToConsole(sortArray);
-		Console.WriteLine($"<<< {current} итерация");
+		Console.WriteLine($"<<< {current + 1} итерация");
 	}
 	return sortArray;
 }
 
-int[] oldArray = { 6, 4, 8, 3, 9, 1, 2, 5, 7 };
+int GetRandomNumber(int min, int max)
+{
+	Random rnd = new Random();
+	return rnd.Next(min, max + 1);
+}
+
+int[] GetRandomArray(int length)
+{
+	int[] randomArray = new int[length];
+	for (int i = 0; i < length; i++)
+	{
+		randomArray[i] = GetRandomNumber(0, 100);
+	}
+	return randomArray;
+}
+
+int size = GetRandomNumber(1, 50);
+int[] oldArray = GetRandomArray(size);
 Console.WriteLine("Изначальный массив:");
 PrintArrayToConsole(oldArray);
 Console.WriteLine();
-int[] sortBubleArray = sortArrayBubble(oldArray);
+int[] sortBubleArray = SortArrayBubble(oldArray);
 Console.WriteLine("Отсортированный массив:");
 PrintArrayToConsole(sortBubleArray);

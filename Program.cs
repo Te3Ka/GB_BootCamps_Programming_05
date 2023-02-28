@@ -17,7 +17,7 @@ int[] SortArrayBubble(int[] sortArray)
 
 	for (int current = 0; current < size - 1; current++)
 	{
-		for (int i = 0; i < size - 1; i++)
+		for (int i = 0; i < size - 1 - current; i++)
 		{
 			if (sortArray[i] > sortArray[i + 1])
 			{
